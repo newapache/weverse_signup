@@ -15,7 +15,11 @@ class BasePage:
 
     # 요소 탐색
     def find_element(self, locator):
-        return self.wait.until(EC.presence_of_element_located(locator))
+        try:
+            return self.wait.until(EC.presence_of_element_located(locator))
+        except Exception as e:
+            print(e)
+            return False  
 
     # 요소 클릭
     def click_element(self, locator, retries=3):
@@ -41,8 +45,9 @@ class BasePage:
     # 텍스트 입력
     def enter_text(self, locator, text):
         element = self.find_element(locator)
-        element.clear()
-        element.send_keys(text)
+        if element:
+            element.clear()
+            element.send_keys(text)
 
     # 체크박스 선택
     def check_checkbox(self, locator):
