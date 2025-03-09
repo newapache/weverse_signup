@@ -15,13 +15,10 @@ class WeverseTest(unittest.TestCase):
         cls.driver.implicitly_wait(10)
 
     def setUp(self):
-        print(f"테스트 시작: {self._testMethodName}")
+        print(f"테스트 시작: {self._testMethodName}\n")
 
     def tearDown(self):
-        if self._outcome.success:
-            print(f"[성공]: {self._testMethodName}")
-        else:
-            print(f"[실패]:{self._testMethodName}")
+        print(f"테스트 종료: {self._testMethodName}\n")
 
     def test_01_open_main_page(self):
         """ 1. 위버스 홈페이지 진입 확인 """
@@ -56,7 +53,6 @@ class WeverseTest(unittest.TestCase):
         try:
             main_page = MainPage(self.driver)
             main_page.go_to_signup_page()
-
             print("로그인 완료")
         except Exception as e:
             print(f"로그인 실패: {e}")
