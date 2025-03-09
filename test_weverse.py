@@ -36,11 +36,13 @@ class WeverseTest(unittest.TestCase):
 
     def test_02_signup(self):
         """ 2. 회원 가입 진행 """
+        raise Exception
         # try:
         #     main_page = MainPage(self.driver)
         #     main_page.go_to_signup_page()
         #     signup_page = SignupPage(self.driver)
         #     signup_page.enter_email(config.EMAIL)
+        #     signup_page.validate_email()
         #     signup_page.enter_password(config.PASSWORD)
         #     signup_page.enter_nickname(config.NICKNAME)
         #     signup_page.agree_terms()

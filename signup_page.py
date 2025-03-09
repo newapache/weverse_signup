@@ -8,6 +8,7 @@ import locators as lc
 class SignupPage(BasePage):
     EMAIL_INPUT = (By.NAME, lc.email_input_name)
     CONTINUE_BUTTON = (By.CLASS_NAME, lc.continue_button_class)
+    VALIDATE_EMAIL = (By.XPATH, lc.email_validate_xpath)
     PASSWORD_INPUT = (By.NAME, lc.password_input_name)
     PASSWORD_CONFIRM_INPUT = (By.NAME, lc.password_confirm_input_name)
     NICKNAME_INPUT = (By.NAME, lc.nickname_input_name)
@@ -21,7 +22,11 @@ class SignupPage(BasePage):
     def enter_email(self, email):
         self.enter_text(self.EMAIL_INPUT, email)
         self.click_element(self.CONTINUE_BUTTON)
-        self.click_element(self.CONTINUE_BUTTON)
+
+    def validate_email(self):
+        validate = self.find_element(self.VALIDATE_EMAIL)
+        if validate:
+            self.click_element(self.CONTINUE_BUTTON)
 
     # 패스워드 입력
     def enter_password(self, password):
