@@ -1,5 +1,5 @@
 BASE_URL = "https://weverse.io/?hl=ko"
 MYPAGE_URL = "https://account.weverse.io/ko/my-page"
-EMAIL = "newoiapache@naver.com"
+EMAIL = "newapache@naver.com"
 PASSWORD = "pqa1212!"
 NICKNAME = "TestUser"
