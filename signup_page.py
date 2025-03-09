@@ -3,6 +3,7 @@ from base_page import BasePage
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import locators as lc
+import time
 
 
 class SignupPage(BasePage):
@@ -33,7 +34,6 @@ class SignupPage(BasePage):
                 return True
             else:
                 return False  
-
         # 가입 이력이 있는 경우
         elif status == 1:
             login_validate = self.find_element(self.PASSWORD_INPUT)
@@ -57,6 +57,7 @@ class SignupPage(BasePage):
     def enter_login_password(self, password):
         self.enter_text(self.PASSWORD_INPUT, password)
         self.click_element(self.CONTINUE_BUTTON)
+        time.sleep(3)
 
 
     # 닉네임 입력

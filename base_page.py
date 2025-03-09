@@ -55,3 +55,11 @@ class BasePage:
         # 체크박스가 체크되지 않은 경우 클릭
         if not checkbox.is_selected():
             checkbox.click()
+
+    # 요소의 텍스트 추출 
+    def get_text(self, locator):
+        try:
+            element = self.wait.until(EC.presence_of_element_located(locator))
+            return element.text.strip()
+        except Exception:
+            return None
